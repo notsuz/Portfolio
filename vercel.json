@@ -1,24 +1,6 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "build_files.sh",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "staticfiles" }
-    },
-    {
-      "src": "Portfolio/wsgi.py",
-      "use": "@vercel/python"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "Portfolio/wsgi.py"
-    }
-  ]
+  "buildCommand": "python3 -m pip install -r requirements.txt --break-system-packages && python3 manage.py makemigrations --noinput && python3 manage.py migrate --noinput && python3 manage.py collectstatic --noinput --clear",
+  "outputDirectory": "staticfiles",
+  "devCommand": "python3 manage.py runserver",
+  "framework": null
 }
