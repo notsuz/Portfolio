@@ -1,13 +1,14 @@
 from django.db import models
 from django.utils import timezone
+from cloudinary.models import CloudinaryField
 
 class Post(models.Model):
     # User Info
     username = models.CharField(max_length=100, default="quietlyodd")
-    profile_pic = models.ImageField(upload_to='profile_pics/', blank=True, null=True)
+    profile_pic = CloudinaryField('image', folder='profile_pics/', blank=True, null=True)
     
     # Post Content
-    main_post_img = models.ImageField(upload_to='post_images/',blank=True, null=True)
+    main_post_img = CloudinaryField('image', folder='post_images/',blank=True, null=True)
     caption = models.TextField(blank=True, null=True)
     
     # Stats & Metadata
