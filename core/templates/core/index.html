@@ -185,7 +185,7 @@
                             <div class="post-caption-box">
                                 <p class="text-dark mb-0" style="font-size: 0.72rem; line-height: 1.2;">
                                     <span class="fw-bold">{{ post.username }}</span> {{
-                                    post.caption|safe|truncatewords:9 }}
+                                    post.caption|striptags|truncatechars:80 }}
                                 </p>
                             </div>
                         </div>
