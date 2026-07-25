@@ -74,7 +74,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.debug',
+                # 'django.template.context_processors.debug',
             ],
         },
     },
@@ -155,10 +155,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-    # BASE_DIR / 'frontend/dist',  # React build output
-]
+# STATICFILES_DIRS = [
+#     BASE_DIR / 'static',
+#     # BASE_DIR / 'frontend/dist',  # React build output
+# ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
