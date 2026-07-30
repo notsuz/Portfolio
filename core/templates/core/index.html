@@ -21,7 +21,9 @@
             --bg-dark: #0a0a0c;
         }
 
-        *, *:after, *:before {
+        *,
+        *:after,
+        *:before {
             box-sizing: border-box;
         }
 
@@ -53,6 +55,7 @@
         .horizontal-viewport::-webkit-scrollbar {
             display: none;
         }
+
         .horizontal-viewport {
             -ms-overflow-style: none;
             scrollbar-width: none;
@@ -195,21 +198,95 @@
             --lerp: var(--lerp-0);
             z-index: 5;
         }
-        .block:has( + :is(.block:hover, .block:focus-visible)),
-        :is(.block:hover, .block:focus-visible) + .block {
+
+        .block:has(+ :is(.block:hover, .block:focus-visible)),
+        :is(.block:hover, .block:focus-visible)+.block {
             --lerp: var(--lerp-1);
             z-index: 4;
         }
-        .block:has( + .block + :is(.block:hover, .block:focus-visible)),
-        :is(.block:hover, .block:focus-visible) + .block + .block {
+
+        .block:has(+ .block + :is(.block:hover, .block:focus-visible)),
+        :is(.block:hover, .block:focus-visible)+.block+.block {
             --lerp: var(--lerp-2);
             z-index: 3;
         }
-        .block:has( + .block + .block + :is(.block:hover, .block:focus-visible)),
-        :is(.block:hover, .block:focus-visible) + .block + .block + .block {
+
+        .block:has(+ .block + .block + :is(.block:hover, .block:focus-visible)),
+        :is(.block:hover, .block:focus-visible)+.block+.block+.block {
             --lerp: var(--lerp-3);
             z-index: 2;
         }
+
+
+        .pricing-card {
+        border-radius: 6px;
+        position: relative;
+        max-height: 340px; /* Controls compact card height */
+        min-height: 300px;
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+    }
+
+    .pricing-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.45);
+    }
+
+    /* Small Header Icon Circle */
+    .icon-circle {
+        width: 44px;
+        height: 44px;
+        background: rgba(10, 10, 12, 0.85);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        font-size: 0.9rem;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .divider-line {
+        height: 1px;
+        background: rgba(255, 255, 255, 0.2);
+        width: 85%;
+        margin: 0 auto;
+    }
+
+    .service-description {
+        display: -webkit-box;
+        -webkit-line-clamp: 5; /* Truncates extra lines cleanly */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .action-btn {
+        border-radius: 4px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-size: 0.8rem;
+        background: rgba(0, 0, 0, 0.25);
+        border: none;
+        transition: background 0.2s;
+    }
+
+    .action-btn:hover {
+        background: rgba(0, 0, 0, 0.45);
+    }
+
+    /* COLOR VARIANTS */
+    .card-variant-cyan { background: #2ca9bd; }
+    .card-variant-cyan .action-btn { background: #23899a; }
+
+    .card-variant-orange { background: #f25a2b; }
+    .card-variant-orange .action-btn { background: #c9461e; }
+
+    .card-variant-teal { background: #2bb3c0; }
+    .card-variant-teal .action-btn { background: #208e9a; }
+
+    .card-variant-green { background: #73c898; }
+    .card-variant-green .action-btn { background: #5aa77c; }
     </style>
 </head>
 
@@ -231,17 +308,26 @@
                                 finding beauty in the unseen.
                             </p>
                             <div class="hero-btns">
-                                <a href="#about" class="btn btn-gold" onclick="scrollToSection(event, 'about')">ABOUT ME →</a>
-                                <a href="#posts" class="btn btn-outline-white" onclick="scrollToSection(event, 'posts')">VIEW POSTS</a>
+                                <a href="#about" class="btn btn-gold" onclick="scrollToSection(event, 'about')">ABOUT ME
+                                    →</a>
+                                <a href="#posts" class="btn btn-outline-white"
+                                    onclick="scrollToSection(event, 'posts')">VIEW POSTS</a>
                             </div>
                             <div class="hero-socials mt-4">
-                                <a href="https://www.instagram.com/quietlyodd/" target="_blank"><i class="fab fa-instagram"></i></a>
-                                <a href="https://github.com/notsuz" target="_blank"><i class="fa-brands fa-github"></i></a>
-                                <a href="https://www.linkedin.com/in/sujal-maharjan-089390215/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-                                <a href="https://www.pinterest.com/inkedMarks/_profile/" target="_blank"><i class="fa-brands fa-pinterest"></i></a>
-                                <a href="https://www.snapchat.com/add/not.suz?share_id=k0DfYdzvvqA&locale=en-GB" target="_blank"><i class="fa-brands fa-snapchat"></i></a>
-                                <a href="https://discord.com/users/764680746991353886" target="_blank"><i class="fa-brands fa-discord"></i></a>
-                                <a href="https://open.spotify.com/user/31ul7mllfv2q6vfgrl7djxe3we5u?si=a4154bed0939492d" target="_blank"><i class="fab fa-spotify"></i></a>
+                                <a href="https://www.instagram.com/quietlyodd/" target="_blank"><i
+                                        class="fab fa-instagram"></i></a>
+                                <a href="https://github.com/notsuz" target="_blank"><i
+                                        class="fa-brands fa-github"></i></a>
+                                <a href="https://www.linkedin.com/in/sujal-maharjan-089390215/" target="_blank"><i
+                                        class="fa-brands fa-linkedin-in"></i></a>
+                                <a href="https://www.pinterest.com/inkedMarks/_profile/" target="_blank"><i
+                                        class="fa-brands fa-pinterest"></i></a>
+                                <a href="https://www.snapchat.com/add/not.suz?share_id=k0DfYdzvvqA&locale=en-GB"
+                                    target="_blank"><i class="fa-brands fa-snapchat"></i></a>
+                                <a href="https://discord.com/users/764680746991353886" target="_blank"><i
+                                        class="fa-brands fa-discord"></i></a>
+                                <a href="https://open.spotify.com/user/31ul7mllfv2q6vfgrl7djxe3we5u?si=a4154bed0939492d"
+                                    target="_blank"><i class="fab fa-spotify"></i></a>
                             </div>
                         </div>
                     </div>
@@ -261,7 +347,8 @@
                 <div class="row align-items-center">
                     <div class="col-lg-4 pe-lg-5 mb-5 mb-lg-0">
                         <span class="section-label mb-3 d-block">ABOUT ME</span>
-                        <h2 class="about-headline mb-4">introverted mind.<br><span class="text-dim">curious soul.</span></h2>
+                        <h2 class="about-headline mb-4">introverted mind.<br><span class="text-dim">curious soul.</span>
+                        </h2>
                         <p class="about-text mb-4">
                             i'm someone who finds meaning in the little things.
                             i love street photography, late nights, good music
@@ -269,7 +356,8 @@
                             welcome to my world.
                         </p>
                         <div class="signature">
-                            <img src="{% static 'images/signature.png' %}" alt="Sujal" class="img-fluid" style="max-width: 150px;">
+                            <img src="{% static 'images/signature.png' %}" alt="Sujal" class="img-fluid"
+                                style="max-width: 150px;">
                         </div>
                     </div>
 
@@ -308,18 +396,22 @@
             <div class="container">
                 <div class="mb-4 px-2">
                     <h2 class="m-0 text-white fw-bold" style="font-size: 1.8rem; letter-spacing: 2px;">
-                        POSTS<span class="ms-2 opacity-50 fw-light" style="font-size: 1.2rem;">({{ posts.count }})</span>
+                        POSTS<span class="ms-2 opacity-50 fw-light" style="font-size: 1.2rem;">({{ posts.count
+                            }})</span>
                     </h2>
                 </div>
 
-                <div class="position-relative w-100 mx-auto" style="max-width: 1100px; height: 440px; perspective: 1000px;">
-                    <button class="btn text-white position-absolute start-0 top-50 translate-middle-y d-flex align-items-center justify-content-center"
+                <div class="position-relative w-100 mx-auto"
+                    style="max-width: 1100px; height: 440px; perspective: 1000px;">
+                    <button
+                        class="btn text-white position-absolute start-0 top-50 translate-middle-y d-flex align-items-center justify-content-center"
                         onclick="shiftCarousel(-1)"
                         style="z-index: 100; background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1); width: 45px; height: 50px; border-radius: 0 8px 8px 0; backdrop-filter: blur(4px);">
                         <i class="fas fa-chevron-left"></i>
                     </button>
 
-                    <div id="coverflowContainer" style="width: 100%; height: 100%; position: relative; transform-style: preserve-3d;">
+                    <div id="coverflowContainer"
+                        style="width: 100%; height: 100%; position: relative; transform-style: preserve-3d;">
                         {% for post in posts %}
                         <div class="carousel-slide-item"
                             style="position: absolute; width: 280px; height: 400px; left: 50%; top: 0; margin-left: -140px; transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s, z-index 0.6s;">
@@ -328,19 +420,24 @@
 
                                 <div class="p-2 d-flex align-items-center border-bottom">
                                     {% if post.profile_pic %}
-                                    <img src="{{ post.profile_pic.url }}" class="rounded-circle" width="28" height="28" style="object-fit: cover;">
+                                    <img src="{{ post.profile_pic.url }}" class="rounded-circle" width="28" height="28"
+                                        style="object-fit: cover;">
                                     {% else %}
                                     <div class="rounded-circle bg-secondary" style="width: 28px; height: 28px;"></div>
                                     {% endif %}
-                                    <span class="ms-2 fw-bold text-dark" style="font-size: 0.82rem;">{{ post.username }}</span>
+                                    <span class="ms-2 fw-bold text-dark" style="font-size: 0.82rem;">{{ post.username
+                                        }}</span>
                                     <i class="fas fa-ellipsis-h ms-auto text-muted small"></i>
                                 </div>
 
-                                <div class="insta-img-square" style="flex-grow: 1; position: relative; overflow: hidden; background: #fafafa;">
+                                <div class="insta-img-square"
+                                    style="flex-grow: 1; position: relative; overflow: hidden; background: #fafafa;">
                                     {% if post.main_post_img %}
-                                    <img src="{{ post.main_post_img.url }}" alt="Post" style="width: 100%; height: 100%; object-fit: cover;">
+                                    <img src="{{ post.main_post_img.url }}" alt="Post"
+                                        style="width: 100%; height: 100%; object-fit: cover;">
                                     {% else %}
-                                    <div class="no-image-placeholder text-muted d-flex align-items-center justify-content-center" style="height: 100%; font-size: 0.8rem;">No image</div>
+                                    <div class="no-image-placeholder text-muted d-flex align-items-center justify-content-center"
+                                        style="height: 100%; font-size: 0.8rem;">No image</div>
                                     {% endif %}
                                 </div>
 
@@ -351,7 +448,8 @@
                                         <i class="far fa-paper-plane small"></i>
                                         <i class="far fa-bookmark ms-auto small"></i>
                                     </div>
-                                    <p class="fw-bold text-dark mb-0" style="font-size: 0.72rem;">{{ post.likes_text }}</p>
+                                    <p class="fw-bold text-dark mb-0" style="font-size: 0.72rem;">{{ post.likes_text }}
+                                    </p>
                                     <div class="post-caption-box">
                                         <p class="text-dark mb-0" style="font-size: 0.72rem; line-height: 1.2;">
                                             <span class="fw-bold">{{ post.username }}</span> {{post.caption}}
@@ -364,7 +462,8 @@
                         {% endfor %}
                     </div>
 
-                    <button class="btn text-white position-absolute end-0 top-50 translate-middle-y d-flex align-items-center justify-content-center"
+                    <button
+                        class="btn text-white position-absolute end-0 top-50 translate-middle-y d-flex align-items-center justify-content-center"
                         onclick="shiftCarousel(1)"
                         style="z-index: 100; background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1); width: 45px; height: 50px; border-radius: 8px 0 0 8px; backdrop-filter: blur(4px);">
                         <i class="fas fa-chevron-right"></i>
@@ -375,22 +474,50 @@
 
         <!-- SERVICES SECTION -->
         <section id="work" class="page-section py-5">
-            <div class="container">
-                <h2 class="hero-title mb-5" style="font-size: 3rem;">WHAT I DO</h2>
-                <div class="row g-5">
-                    {% for service in services %}
-                    <div class="col-md-4">
-                        <h4 class="text-gold fw-bold">{{ service.title }}</h4>
-                        <p class="text-readable" style="line-height: 1.6; text-align: justify;">
-                            <span class="service-preview">{{ service.description|safe|truncatewords:20 }}</span>
-                            <span class="service-full d-none">{{ service.description|safe }}</span>
-                            <a href="javascript:void(0);" class="see-more-service text-dark text-decoration-none small fw-bold ms-1"
-                                onclick="toggleService(this)" style="font-size: 0.8rem; letter-spacing: 0.5px;">see more →</a>
-                        </p>
+            <div class="container-fluid px-4">
+                <h2 class="fw-bold mb-4 text-center" style="font-size: 2.5rem;">WHAT I DO</h2>
+
+                <div class="row g-3 justify-content-center align-items-stretch">
+                    {% for service in services|dictsort:"order" %}
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <!-- Color variants based on cycle -->
+                        <div
+                            class="pricing-card card-variant-{% cycle 'cyan' 'orange' 'teal' 'green' %} d-flex flex-column justify-content-between h-100">
+
+                            <!-- COMPACT HEADER -->
+                            <div class="card-header-wrapper text-center p-3">
+                                <div class="icon-circle mx-auto mb-2">
+                                    <span class="fw-bold">0{{ forloop.counter }}</span>
+                                </div>
+                                <h4 class="fw-bold text-white card-title mb-0 fs-5">{{ service.title }}</h4>
+                            </div>
+
+                            <div class="divider-line"></div>
+
+                            <!-- COMPACT DESCRIPTION (SCROLLABLE IF OVERFLOWS) -->
+                            <div
+                                class="card-body-wrapper p-3 text-center d-flex align-items-center justify-content-center flex-grow-1">
+                                <p class="service-description text-white-50 m-0 small"
+                                    style="line-height: 1.5; text-align: justify;">
+                                    {{ service.description|safe }}
+                                </p>
+                            </div>
+
+                            <div class="divider-line"></div>
+
+                            <!-- COMPACT ACTION BUTTON -->
+                            <div class="card-footer-wrapper text-center p-2">
+                                <a href="#contact" onclick="scrollToSection(event, 'contact')"
+                                    class="btn action-btn w-100 fw-bold py-2 text-white">
+                                    Get Started
+                                </a>
+                            </div>
+
+                        </div>
                     </div>
                     {% empty %}
-                    <div class="col-12">
-                        <p class="text-muted">No services listed yet.</p>
+                    <div class="col-12 text-center text-muted">
+                        <p>No services loaded yet.</p>
                     </div>
                     {% endfor %}
                 </div>
@@ -409,9 +536,12 @@
                         <form>
                             <div class="row g-3">
                                 <div class="col-md-6"><input type="text" class="form-control" placeholder="Name"></div>
-                                <div class="col-md-6"><input type="email" class="form-control" placeholder="Email"></div>
-                                <div class="col-12"><textarea class="form-control" rows="4" placeholder="Message"></textarea></div>
-                                <div class="col-12"><button type="submit" class="btn btn-gold w-100 py-3">SEND MESSAGE</button></div>
+                                <div class="col-md-6"><input type="email" class="form-control" placeholder="Email">
+                                </div>
+                                <div class="col-12"><textarea class="form-control" rows="4"
+                                        placeholder="Message"></textarea></div>
+                                <div class="col-12"><button type="submit" class="btn btn-gold w-100 py-3">SEND
+                                        MESSAGE</button></div>
                             </div>
                         </form>
                     </div>
